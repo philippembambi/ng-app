@@ -1,0 +1,17 @@
+<form (ngSubmit)="onSubmit()" class="was-validated">
+  <div class="mb-3 mt-3">
+    <label for="email" class="form-label">Tâche:</label>
+    <input type="text" class="form-control" id="taskName" placeholder="Nom de la tâche" [(ngModel)]="taskName"
+      name="task">
+  </div>
+  <select class="form-select" [(ngModel)]="status" name="status">
+    <option value="" disabled selected>Status</option>
+    <option *ngFor="let s of statuses" [value]="s">{{ s }}</option>
+  </select>
+
+  <br>
+  <label for="comment">Description:</label>
+  <textarea class="form-control" rows="5" id="comment" name="description" [(ngModel)]="description"></textarea>
+  <br>
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>

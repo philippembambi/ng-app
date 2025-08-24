@@ -1,0 +1,26 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Tâche</th>
+      <th>Description</th>
+      <th>Statut</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let task of tasks()">
+      <tr>
+        <td>{{ task.id }}</td>
+        <td>{{ task.title }}</td>
+        <td>{{ task.description }}</td>
+        <td [ngClass]="task.status === 'Done' ? 'text-success' : task.status === 'In progress' ? 'text-primary' : ''">
+          {{ task.status }}
+        </td>
+        <td>
+          <button class="btn btn-sm btn-primary me-2">Modifier</button>
+          <button class="btn btn-sm btn-danger">Supprimer</button>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
