@@ -19,8 +19,9 @@
         </td>
         <td>
           <button class="btn btn-sm btn-primary me-2">Modifier</button>
-          <button class="btn btn-sm btn-danger">Supprimer</button>
-      </tr>
+          <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Supprimer</button>
+          <app-modal [taskId]="task.id"></app-modal>
+       </tr>
     </ng-container>
   </tbody>
 </table>

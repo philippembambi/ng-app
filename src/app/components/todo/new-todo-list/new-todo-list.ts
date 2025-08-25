@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TaskService } from '../../../services/task-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-todo-list',
@@ -10,7 +11,7 @@ import { TaskService } from '../../../services/task-service';
   styleUrl: './new-todo-list.css',
 })
 export class NewTodoList {
-  constructor(private taskService: TaskService) {}
+  constructor(private taskService: TaskService, private router: Router) {}
   tasks = computed(() => this.taskService.tasks());
 
   taskName = '';
@@ -27,12 +28,10 @@ export class NewTodoList {
       status: this.status,
       description: this.description,
     };
-     this.taskService.addTask(newTask);
+    this.taskService.addTask(newTask);
     this.taskName = '';
     this.status = '';
     this.description = '';
-    // console.log('Task:', this.taskName);
-    // console.log('Status:', this.status);
-    // console.log('Description:', this.description);
+    this.router.navigate(['/']);
   }
 }

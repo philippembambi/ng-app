@@ -19,7 +19,11 @@ export class TaskService {
 
   addTask(task: Task) {
     this.tasks.update(tasks => [...tasks, task]);
-    console.log('Task added:', task );
-
+  }
+  get tasksList() {
+    return this.tasks;
+  }
+  removeTask(id: number) {
+    this.tasks.update(tasks => tasks.filter(task => task.id !== id));
   }
 }

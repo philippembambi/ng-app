@@ -3,10 +3,11 @@ import { NgFor } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { NewTodoList } from '../components/todo/new-todo-list/new-todo-list';
 import { TaskService } from '../services/task-service';
+import { Modal } from '../components/modal/modal';
 
 @Component({
   selector: 'home-app',
-  imports: [CommonModule, NgFor, NewTodoList],
+  imports: [CommonModule, NgFor, NewTodoList, Modal],
   templateUrl: './home-app.html',
   styleUrl: './home-app.css'
 })
